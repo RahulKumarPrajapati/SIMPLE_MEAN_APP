@@ -1,0 +1,52 @@
+<form [formGroup]="task" (submit)="addTask()" *ngIf="!edit">
+    <h3>Add Task</h3>
+    <div class="mb-3">
+        <label for="taskName" class="form-label">Task Name</label>
+        <input type="text" formControlName="taskName" name="taskName" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" formControlName="description" name="description" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="assignedTo" class="form-label">Assign To</label>
+      <select  formControlName="assignedTo" name="assignedTo" class="form-control">
+        <option *ngFor="let item of architectList" value="{{item._id}}">{{ item.username }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select  formControlName="status" name="status" class="form-control">
+        <option value="pending">Pending</option>
+        <option value="working">Working</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<form [formGroup]="task" (submit)="editTask()" *ngIf="edit">
+  <h3>Edit Task</h3>
+  <div class="mb-3">
+      <label for="taskName" class="form-label">Task Name</label>
+      <input type="text" formControlName="taskName" name="taskName" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" formControlName="description" name="description" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label for="assignedTo" class="form-label">Assign To</label>
+    <select  formControlName="assignedTo" name="assignedTo" class="form-control">
+      <option *ngFor="let item of architectList" value="{{item._id}}">{{ item.username }}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+    <select  formControlName="status" name="status" class="form-control">
+      <option value="pending">Pending</option>
+      <option value="working">Working</option>
+      <option value="done">Done</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

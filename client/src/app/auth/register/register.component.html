@@ -1,0 +1,28 @@
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="serverErrorMsg">
+  {{ serverErrorMsg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<form #register="ngForm" (submit)="getDetails(register.value)">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" #username ="ngModel" [(ngModel)]="user.username" name="username" class="form-control"  aria-describedby="usernameHelp">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" #email ="ngModel" [(ngModel)]="user.email" name="email" class="form-control" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" #password ="ngModel" [(ngModel)]="user.password" name="password" minlength="4" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Role</label>
+      <select type="select" #role ="ngModel" [(ngModel)]="user.role" name="role" class="form-control">
+        <option value="admin">Admin</option>
+        <option value="architect">Architect</option>
+        <option value="builder">Builder</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

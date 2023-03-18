@@ -1,0 +1,16 @@
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="serverErrorMsg">
+  {{ serverErrorMsg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<form #login="ngForm" (submit)="authenticate(login.value)">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" #email ="ngModel" [(ngModel)]="user.email" name="email" class="form-control" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" #password ="ngModel" [(ngModel)]="user.password" name="password" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
